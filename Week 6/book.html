@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book a Visit – Sunrise Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Book a Visit</h1>
+    <p>Fill out the form to schedule your school visit or appointment.</p>
+  </header>
+
+  <section>
+    <form id="bookingForm" onsubmit="return handleFormSubmit(event)">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+
+      <label for="visitDate">Preferred Visit Date:</label>
+      <input type="date" id="visitDate" name="visitDate" required>
+
+      <label for="time">Preferred Time:</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="program">Interested Program:</label>
+      <select id="program" name="program" required>
+        <option value="">-- Select Program --</option>
+        <option value="nursery">Nursery</option>
+        <option value="primary">Primary</option>
+        <option value="junior">Junior Secondary</option>
+      </select>
+
+      <label for="children">Number of Children:</label>
+      <input type="number" id="children" name="children" min="1" max="5" required>
+
+      <label for="message">Additional Message:</label>
+      <textarea id="message" name="message" rows="4" placeholder="Any other information..."></textarea>
+
+      <input type="submit" value="Submit Booking">
+    </form>
+
+    <p class="confirmation" id="confirmationMsg">✅ Thank you! Your booking has been received.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sunrise Academy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      document.getElementById("confirmationMsg").style.display = "block";
+      document.getElementById("bookingForm").reset();
+      return false;
+    }
+  </script>
+
+</body>
+</html>
